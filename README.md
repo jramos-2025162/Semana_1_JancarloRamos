@@ -1,59 +1,22 @@
-# MiPrimerProyectoAngular
+# Documentación del Proyecto - Actividad 1 Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.3.
 
-## Development server
+El proyecto fue creado utilizando la CLI de Angular mediante el comando:
+`ng new mi_primer_proyecto_angular`
 
-To start a local development server, run:
+El proyecto está organizado bajo una estructura modular y escalable dentro de la carpeta `src/app/`:
 
-```bash
-ng serve
-```
+* `src/app/components/`: Almacena los componentes visuales de la aplicación.
+  * **Existentes:** `header`, `body`, `footer`.
+  * **Nuevos componentes:** `inicio`, `productos`, `contacto`, `acerca-de`.
+* `src/app/core/`: Destinado a elementos globales como servicios, modelos e interceptores para la lógica de negocio.
+  * `core/services/api.service.ts`: Servicio base configurado para realizar peticiones HTTP al servidor.
+* `src/environments/`: Contiene la configuración de variables de entorno (URL base de la API).
+* `AppModule` (`app.module.ts`): Módulo principal donde se declaran e integran todos los componentes y servicios necesarios.
+* `AppComponent` (`app.component.ts`): Componente raíz que orquesta la visualización general.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 3. Planificación de Conexión con Backend (Node.js / TypeScript)
+La comunicación con el backend se realizará mediante el protocolo HTTP consumiendo una API RESTful desarrollada en Node.js/Express:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. **Configuración:** La URL base (`http://localhost:3000/api`) se define en `environment.ts`.
+2. **Consumo:** Los componentes inyectarán el servicio de API para recibir y mostrar la información procesada por el servidor.
